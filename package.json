@@ -2,12 +2,12 @@
   "name": "equiprunserve",
   "version": "1.0.0",
   "description": "equip run serve",
-  "main": "src/app.mjs",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node   src/app1.js",
-    "app1": "node   src/app1.js",
-    "app2": "node   src/app2.js",
-    "app3": "node   src/app3.js",
+    "start": "node   src/app1",
+    "app1": "node   ./src/app_1.js",
+    "app2": "node   src/app_2.js",
+    "app3": "node   src/app_3.js",
     "pm2": "pm2 start processes.json",
     "test": "test"
   },
