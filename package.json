@@ -1,0 +1,38 @@
+{
+  "name": "equiprunserve",
+  "version": "1.0.0",
+  "description": "equip run serve",
+  "main": "src/app.mjs",
+  "scripts": {
+    "start": "node   src/app1.js",
+    "app1": "node   src/app1.js",
+    "app2": "node   src/app2.js",
+    "app3": "node   src/app3.js",
+    "pm2": "pm2 start processes.json",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "equiprunserve"
+  },
+  "dependencies": {
+    "Consul": "^0.37.0",
+    "child_process": "^1.0.2",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-json": "^2.0.2",
+    "koa-router": "^9.4.0",
+    "koa-static": "^5.0.0",
+    "path": "^0.12.7",
+    "rxjs": "^6.6.2",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@types/consul": "^0.23.34",
+    "gulp": "^4.0.2",
+    "gulp-jsdoc3": "^3.0.0",
+    "jsdoc": "^3.6.5"
+  },
+  "author": "",
+  "license": "ISC"
+}
