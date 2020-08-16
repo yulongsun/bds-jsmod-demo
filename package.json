@@ -8,6 +8,8 @@
     "app1": "node   ./src/app_1.js",
     "app2": "node   src/app_2.js",
     "app3": "node   src/app_3.js",
+    "dereg": "node   src/dereg.js",
+    
     "pm2": "pm2 start processes.json",
     "test": "test"
   },
