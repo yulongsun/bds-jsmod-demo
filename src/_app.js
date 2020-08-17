@@ -4,30 +4,29 @@
 const Koa = require('koa');
 const childprocess = require('child_process');
 const Json = require('koa-json');
-const serve = require('koa-static');
 const Router = require('koa-router');
 
-const api = require('../lib/demo.module');
-
+const api = require('../lib/jsdemo.module');
+const helper = require('../lib/helper');
 
 const app = new Koa()
 const router = new Router()
 const json = new Json()
 
 //app.use(koaBody())
-// 使用./static下的静态文件，决定了客户端起动在是在目录位置的index.html
 
-//app.use(serve(__dirname + '/static'));
 
 app.use(json)
 
-const port = process.env.PORT || 6789
 
+
+
+//路由
 router.get('/', api.index)
 router.get('/index', api.index)
 router.get('/health', api.health)
-
 app.use(router.routes());
+
 
 // 日志中间件
 app.use(async (ctx, next) => {
@@ -38,10 +37,12 @@ app.use(async (ctx, next) => {
 })
 
 
+let Ips = helper.getLocalIP();
+let regist_address =Ips[0];    // '127.0.0.1'
 
 //起动侦听
 app.listenPort = function (port) {
-	const address = '10.0.0.135';
+	const address = regist_address;
 	app.listen(port, () => {
 		//注册服务
 		api.register(address, port).then(x => {
@@ -51,8 +52,9 @@ app.listenPort = function (port) {
 }
 
 
+
 app.deregister = function (ports) {
-	const address = '10.0.0.135';
+	const address = regist_address;
 
 	ports.forEach(port => {
 		api.deregister(address, port).then(x => {
