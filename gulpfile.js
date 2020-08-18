@@ -5,13 +5,15 @@ const jsdoc = require('gulp-jsdoc3');
 const srcCode = ['./lib/**/*.js'];
 const mod = require('./lib/module');
 
-//todo:  将生成的文档转到  huishidatadserver/static/中
+
 
 //通过 gulp 调用将。。p写往到
 gulp.task('setapis', function (cb) {
-    mod.postApis();
+    mod.postApis_version1();
 });
-
+gulp.task('getapis', function (cb) {
+    mod.getApis_version1();
+});
 
 
 // We do this over using include/exclude to make everything feel gulp-like!
